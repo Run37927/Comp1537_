@@ -7,7 +7,7 @@
 table,th, td {
     border: 1px solid black;
     border-collapse: collapse;
-
+    width: 350px;
   }
 
 th {
@@ -21,7 +21,7 @@ td{
 h2 {
     border: 3px solid black;
     background-color: coral;
-    width:max-content;
+    width:350px;
     color:black;
 }
 
