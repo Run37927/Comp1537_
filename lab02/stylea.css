@@ -1,0 +1,24 @@
+#green {
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    background-color: grey;
+    width: 50%;  
+}
+
+#red {
+padding: 10px;
+margin: 20px;
+border: 10px dashed red;
+background-color: grey;
+width: 60%;
+}
+
+#blue {
+    padding: 20px;
+    margin: 20;
+    border: 5px double blue;
+    background-color: grey;
+}
+
+

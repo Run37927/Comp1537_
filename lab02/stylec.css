@@ -1,0 +1,28 @@
+#header {
+    border: 5px solid black;
+    background-color: greenyellow;
+    color:rgb(69, 6, 243)
+}
+
+table,th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+
+  }
+
+th {
+    color:black;
+}
+
+td{
+    color:coral;
+}
+
+h2 {
+    border: 3px solid black;
+    background-color: coral;
+    width:max-content;
+    color:black;
+}
+
+
