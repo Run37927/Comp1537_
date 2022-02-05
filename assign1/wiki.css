@@ -59,14 +59,15 @@ body {
     padding-right: 5px;
 }
 
-/* #queen {
-    float: right;
+#queen {
+    float: left;
     border:1px solid grey;
-    
-} */
+   margin-bottom: 20px;
+  
+}
 
 #wife {
-    float: right;
+    float: left;
     border:1px solid grey;
 }
 
