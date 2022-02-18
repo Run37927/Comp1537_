@@ -62,7 +62,7 @@ body {
 }
 
 #queen {
-    float: left;
+    float: right;
     border:1px solid grey;
    margin-bottom: 20px;
   
