@@ -37,7 +37,21 @@ nav a:hover{
 
 .clearfix::after{
     clear: both;
-    
+}
+
+.clearfix {
+    width: 100%;
+    overflow: hidden;
+}
+
+blockquote {
+    text-align: center;
+    font-size: larger;
+    line-height: 2em;
+}
+
+h3 {
+    text-align: center;
 }
 
 #img_container {
@@ -67,10 +81,6 @@ main {
     padding: 10px;
 }
 
-.clearfix {
-    width: 100%;
-    overflow: hidden;
-}
 
 footer {
     margin-top: 30px;
