@@ -6,7 +6,7 @@ function calculate_area() {
 
 
 function setup() {
-    console.log("setup() got called")
+    // console.log("setup() got called")
     jQuery("#calc").click(calculate_area);
 }
 jQuery(document).ready(setup);
