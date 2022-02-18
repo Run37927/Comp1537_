@@ -81,12 +81,24 @@ main {
     padding: 10px;
 }
 
+#para {
+    margin-left: 25%;
+    width: 50%;
+    text-align: center;
+}
 
 footer {
+    background: #c7423f;
     margin-top: 30px;
     text-align: center;
     clear: both;
+}
 
+#read {
+    background-color: white;
+    padding: 25px 46px;
+    width: 30%;
+    margin-left: 35%;
 }
 
 @media screen and (max-width: 550px) {
