@@ -12,7 +12,9 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
+h1 {
+    font-family: proxima-nova;
+}
 
 .link {
     width: 33.3%;
@@ -21,7 +23,9 @@ body {
 
 }
 
-
+#title {
+    font-family: din-condensed-web;
+}
 nav a{
     color: black;
     padding: 14px 16px 14px 16px;
@@ -29,6 +33,7 @@ nav a{
     display: block;
     float: left;
     text-align: justify;
+    font-family: din-condensed-web;
 }
 
 nav a:hover{
@@ -48,6 +53,7 @@ blockquote {
     text-align: center;
     font-size: larger;
     line-height: 2em;
+    font-family: adobe-garamond-pro;
 }
 
 h3 {
@@ -99,6 +105,7 @@ footer {
     padding: 25px 46px;
     width: 30%;
     margin-left: 35%;
+    font-family: proxima-nova;
 }
 
 @media screen and (max-width: 550px) {
