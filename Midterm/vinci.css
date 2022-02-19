@@ -118,7 +118,6 @@ footer {
         width: 100%;
     }
     nav a{
-        width: 100%;
-        float: none !important;
+       display: none;
     }
 }
