@@ -14,19 +14,22 @@ body {
 
 h1 {
     font-family: proxima-nova;
+  
 }
 
-.link {
+.topnav {
     width: 33.3%;
     line-height: 3em;
     border-top: solid 1px #c4bdb1;
-
+    overflow: hidden;
 }
 
 #title {
     font-family: din-condensed-web;
+    width: 33.3%;
 }
-nav a{
+
+.topnav a{
     color: black;
     padding: 14px 16px 14px 16px;
     text-decoration: none;
@@ -34,9 +37,10 @@ nav a{
     float: left;
     text-align: justify;
     font-family: din-condensed-web;
+  
 }
 
-nav a:hover{
+.topnav a:hover{
     background-color: grey;
 }
 
@@ -98,6 +102,7 @@ footer {
     margin-top: 30px;
     text-align: center;
     clear: both;
+    padding: 30px 30px;
 }
 
 #read {
@@ -105,7 +110,13 @@ footer {
     padding: 25px 46px;
     width: 30%;
     margin-left: 35%;
+  
+}
+
+#read a{
     font-family: proxima-nova;
+    color: #c7423f;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 550px) {
@@ -117,7 +128,16 @@ footer {
     #img_container{
         width: 100%;
     }
-    nav a{
+    topnav a{
        display: none;
+    }
+
+    .topnav {
+        width: 0% !important;
+        height: 0% !important;
+    }
+
+    footer a {
+        margin: 60px 10px;
     }
 }
