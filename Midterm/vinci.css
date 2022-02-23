@@ -56,7 +56,7 @@ h1 {
 }
 
 .topnav a:hover{
-    background-color: grey;
+    background-color: #c4bdb1;
 }
 
 .clearfix::after{
