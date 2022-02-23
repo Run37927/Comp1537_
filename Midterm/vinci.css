@@ -2,9 +2,10 @@
     box-sizing: border-box;
   }
 
-  header {
+header {
       text-align: center;
       width: 100%;
+      overflow: hidden;
   }
   
 body {
@@ -18,25 +19,39 @@ h1 {
 }
 
 .topnav {
-    width: 33.3%;
+    width: 30%;
     line-height: 3em;
     border-top: solid 1px #c4bdb1;
+    border-bottom: solid 1px #c4bdb1;
     overflow: hidden;
+    float: left;
+    margin: 50px 0px;
 }
 
 #title {
     font-family: din-condensed-web;
-    width: 33.3%;
+    width: 40%;
+    float: left;
+    padding-top: 65px;
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #c7423f;
+    text-align: center;
 }
 
 .topnav a{
     color: black;
-    padding: 14px 16px 14px 16px;
+    width: 33.33%;
+    padding: 9px 8px;
     text-decoration: none;
     display: block;
     float: left;
-    text-align: justify;
+    text-align: center;
     font-family: din-condensed-web;
+    letter-spacing: 0.09em;
+   font-family: Arial, Helvetica, sans-serif;
   
 }
 
@@ -55,12 +70,25 @@ h1 {
 
 blockquote {
     text-align: center;
-    font-size: larger;
-    line-height: 2em;
+    font-weight: 400;
+    line-height: 1.5em;
     font-family: adobe-garamond-pro;
+    font-size: 40px;
+    letter-spacing: 0.02em;
 }
 
-h3 {
+main h3 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.container h3 {
+    font-size: 16px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     text-align: center;
 }
 
@@ -80,26 +108,32 @@ img {
 }
 
 .container {
-    /* margin-left: 20%; */
     float: left;
     width: 33.3%;
-    padding: 10px;
-    
+    padding: 10px; 
 }
 
+.container blockquote {
+    font-family: adobe-garmond-pro;
+    font-size: 25px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    line-height: 1.25em;
+
+}
 main {
     padding: 10px;
 }
 
 #para {
-    margin-left: 25%;
-    width: 50%;
+    margin-left: 12%;
+    width: 70%;
     text-align: center;
 }
 
 footer {
     background: #c7423f;
-    margin-top: 30px;
+    margin-top: 35px;
     text-align: center;
     clear: both;
     padding: 30px 30px;
@@ -107,16 +141,21 @@ footer {
 
 #read {
     background-color: white;
-    padding: 25px 46px;
-    width: 30%;
-    margin-left: 35%;
+    padding: 17px 40px;
+    width: 20%;
+    margin-left: 40%;
   
 }
 
 #read a{
-    font-family: proxima-nova;
+    font-family: Arial, Helvetica, sans-serif;
     color: #c7423f;
     text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+   
 }
 
 @media screen and (max-width: 550px) {
