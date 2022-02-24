@@ -1,52 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-
-    </script>
-
-    <style>
-        .blue {
-            background-color:aquamarine;
-        }
-
-        .pink {
-            background-color: pink;
-        }
-
-        .yellow {
-            background-color: yellow;
-        }
-
-        .orange {
-            background-color: orange;
-        }
-
-    </style>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <script src="calculator.js"></script>
 </head>
+
+
 <body>
-    <label for=""x> First operand</label>
-    <input type="text" id="x">
-    <br>
-    <label for=""y> Second operand</label>
-    <input type="text" id="y">
-    <br>
-    <button type="button" id="add" style="background-color: aquamarine;">+</button>
-    <button type="button" id="sub" style="background-color: pink;">-</button>
-    <button type="button" id="mul" style="background-color: yellow;">*</button>
-    <button type="button" id="div" style="background-color: orangered;">/</button>
+    <div id="box">
+        <div id="title">
+            <h1>Calculator</h1>
+        </div>
+        <div class="operand">
+            <label for="x"> First operand</label>
+            <input type="text" id="x">
+        </div>
 
-    <p id="p1">Result:</p>
+        <div class="operand">
+            <label for="y"> Second operand</label>
+            <input type="text" id="y">
+        </div>
 
-    <h1>History</h1>
+        <div id="buttons">
 
-    <div id="history"></div>
-   
+            <button class="operator add-color" id="add">+</button>
+            <button class="operator sub-color" id="sub">-</button>
+            <button class="operator mul-color" id="mul">*</button>
+            <button class="operator div-color" id="div">/</button>
+        </div>
+
+        <div id="result">
+            <p id="p1">Result:</p>
+        </div>
+
+        <div id="history-box">
+            <h2>History:</h2>
+            <div id="history"></div>
+        </div>
+    </div>
 </body>
+
 </html>
