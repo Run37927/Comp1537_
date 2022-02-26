@@ -3,6 +3,7 @@ let history = []
 function operate(op) {
     x = parseInt($('#x').val());
     y = parseInt($('#y').val());
+
     switch(op) {
         case 'add':
             expression = x + ' + ' + y + ' = ' + (x + y);
@@ -16,13 +17,20 @@ function operate(op) {
         case 'div':
             expression = x + ' / ' + y + ' = ' + (x / y);
             break;
+        case 'ac':
+            expression = $('#x').val("0") + $('#y').val("0")
+            $('#result').html('');
+            history = []
+            $('#history').html(history)
+            break;
         default:
             expression = 'ERROR'
             console.log("Error in calculation")
     }
-    jQuery('#result').html("Result of " + expression);
+    if (op != 'ac') {
+        jQuery('#result').html("Result of " + expression);
     history.unshift(`<div class=${op}-color>${expression}</div>`);
-    $('#history').html(history);
+    $('#history').html(history);}
 }
 
 function setup() {
