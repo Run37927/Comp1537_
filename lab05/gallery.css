@@ -17,7 +17,7 @@ nav {
 }
 
 nav a{
-    color: #f2f2f2;
+    color: skyblue;
     padding: 14px 16px 14px 16px;
     text-decoration: none;
     display: block;
@@ -26,7 +26,7 @@ nav a{
 }
 
 nav a:hover{
-    background-color: #f2f2f2;
+    background-color: skyblue;
     color: #333;
 }
 
