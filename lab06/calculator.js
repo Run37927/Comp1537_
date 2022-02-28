@@ -1,40 +1,76 @@
+function addition() {
+    // console.log("calculate_area () got called")
+    // alert(jQuery("body").html());
 
-let history = []
-function operate(op) {
-    x = parseInt($('#x').val());
-    y = parseInt($('#y').val());
+    // alert(jQuery("#x").val());
+    x = parseInt(jQuery("#x").val());
+    y = parseInt(jQuery("#y").val());
+    // console.log( r * r * 22/7)
+    jQuery("#p1").html("Result: " + (x) + "+" + (y) + "=" + (x + y))
+    jQuery("#history").append("<span class = 'blue'>" + (x) + "+" + (y) + "=" + (x + y) + "</span>" + "<br>");
 
-    switch(op) {
-        case 'add':
-            expression = x + ' + ' + y + ' = ' + (x + y);
-            break;
-        case 'sub':
-            expression = x + ' - ' + y + ' = ' + (x - y);
-            break;
-        case 'mul':
-            expression = x + ' * ' + y + ' = ' + (x * y);
-            break;
-        case 'div':
-            expression = x + ' / ' + y + ' = ' + (x / y);
-            break;
-        case 'ac':
-            expression = $('#x').val("0") + $('#y').val("0")
-            $('#result').html('');
-            history = []
-            $('#history').html(history)
-            break;
-        default:
-            expression = 'ERROR'
-            console.log("Error in calculation")
-    }
-    if (op != 'ac') {
-        jQuery('#result').html("Result of " + expression);
-    history.unshift(`<div class=${op}-color>${expression}</div>`);
-    $('#history').html(history);}
 }
+
+function subtract() {
+    // console.log("calculate_area () got called")
+    // alert(jQuery("body").html());
+
+    // alert(jQuery("#x").val());
+    x = parseInt(jQuery("#x").val());
+    y = parseInt(jQuery("#y").val());
+    // console.log( r * r * 22/7)
+    jQuery("#p1").html("Result: " + (x) + "-" + (y) + "=" + (x - y))
+    jQuery("#history").append("<span class = 'pink'>" + (x) + "-" + (y) + "=" + (x - y) + "</span>" + "<br>");
+
+}
+
+function multiply() {
+    // console.log("calculate_area () got called")  
+    // alert(jQuery("body").html());
+
+    // alert(jQuery("#x").val());
+    x = parseInt(jQuery("#x").val());
+    y = parseInt(jQuery("#y").val());
+    // console.log( r * r * 22/7)
+    jQuery("#p1").html("Result: " + (x) + "*" + (y) + "=" + (x * y))
+    jQuery("#history").append("<span class='yellow'>" + (x) + "*" + (y) + "=" + (x * y) + "</span>" + "<br>");
+
+}
+
+function division() {
+    // console.log("calculate_area () got called")
+    // alert(jQuery("body").html());
+
+    // alert(jQuery("#x").val());
+    x = parseInt(jQuery("#x").val());
+    y = parseInt(jQuery("#y").val());
+    jQuery("#p1").html("Result: " + (x) + "/" + (y) + "=" + (x / y))
+
+    jQuery("#history").append("<span class='orange'>" + (x) + "/" + (y) + "=" + (x / y) + "</span>" + "<br>");
+}
+
+function increase() {
+    currentFont = parseInt($("#history").css("font-size"));
+    currentFont += 8;
+    $("#history").css("font-size", currentFont);
+}
+
+function decrease() {
+    currentFont = parseInt($("#history").css("font-size"));
+    currentFont -= 8;
+    $("#history").css("font-size", currentFont);
+}
+
 
 function setup() {
-    $(".operator").click(function(){operate(this.id)} )
-}
+    // console.log("setup () got called")
+    jQuery("#add").click(addition);
+    jQuery("#sub").click(subtract);
+    jQuery("#mul").click(multiply);
+    jQuery("#div").click(division);
+    jQuery("#up").click(increase);
+    jQuery("#down").click(decrease);
 
-$(document).ready(setup);
+
+}
+jQuery(document).ready(setup);
