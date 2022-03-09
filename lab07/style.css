@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: monospace;
+}
+
+#box {
+    margin: 15px;
+    padding: 20px;
+    width: 300px;
+    border: 2px solid #111;
+    border-radius: 25px;
+   background-image: url("image/pepe.jpg");
+   background-size: contain;
+    box-shadow: 12px 6px 8px rgb(138, 138, 138);
+  }
+
+  h1,
+  h2 {
+    /* font-style: italic; */
+    padding: 5px;
+  }
+  #title {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0.5em;
+    text-align: center;
+  }
+  .operand {
+    margin: 15px 0;
+  }
+  .operand label {
+    display: inline-block;
+    font-size: 16px;
+    text-align: right;
+    width: 60%;
+   
+  }
+  .operand input {
+    font-size: 18px;
+    width: 3em;
+    text-align: center;
+  }
+  
+  #buttons {
+    margin: 20px 0 20px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  button.operator {
+    font-size: 20px;
+    font-weight: bold;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+  
+  #result {
+    margin: 20px 0 20px;
+    padding: 0.5em 0.7em;
+    height: 54px;
+    font-size: 16px;
+    background-color: white;
+    box-shadow: inset 3px 2px 3px rgb(138, 138, 138);
+    border-radius: 5px;
+  }
+  #p1 {
+    height: fit-content;
+  }
+  
+  #history-box {
+    height: fit-content;
+    background-color: rgb(245, 245, 245);
+    border: 2px solid rgb(245, 245, 245);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  #history {
+    height: 250px;
+    overflow: auto;
+  }
+  #history * {
+    padding: 4.5px;
+    font-size: 13px;
+    /* margin-top: 1px; */
+  }
+  
+  .add-color {
+    background-color:yellow;
+  }
+  .sub-color {
+    background-color: plum;
+  }
+  .mul-color {
+    background-color: orange;
+  }
+  .div-color {
+    background-color: aquamarine;
+  }
+  .ac-color {
+    background-color: skyblue;
+  }
+ 
