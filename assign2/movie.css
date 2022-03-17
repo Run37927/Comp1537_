@@ -14,3 +14,36 @@ header {
     background-color: whitesmoke;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+
+.button_container {
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.button_container button {
+    width: 50px;
+    height: 25px;
+    border-radius: 8px;
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: f3f3f3;
+    margin: 5px;
+    transition: 0.4s;
+    color: black;
+    font-size: 18px;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.button_container button:hover {
+    background-color: blanchedalmond;
+}
+
+.button_container button.active {
+    background-color: blanchedalmond;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
