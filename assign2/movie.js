@@ -33,8 +33,8 @@ function getInfo() {
 
                 for (let i = 0; i < paginatedItems.length; i++) {
                     let item = paginatedItems[i];
-                
-                    $('#result').append(item.original_title + "<br>");
+                    count = i + 1;
+                    $('#result').append("#" + count + " " + item.original_title + "<br>");
                     $('#result').append(item.overview +"<br>");
                 
                     address = item.poster_path
