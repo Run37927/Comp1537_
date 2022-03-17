@@ -84,8 +84,27 @@ function getInfo() {
             $('#prev_btn').on('click', function () {
                 currentPage = Math.max(currentPage - 1, 1);
                 displayList(movieResults, list_element, rows, currentPage);
+                setupPagination(movieResults, pagination_element, rows);
+            });
 
-            })
+                       
+            $('#next_btn').on('click', function () {
+                currentPage = Math.min(currentPage + 1, 4);
+                displayList(movieResults, list_element, rows, currentPage);
+                setupPagination(movieResults, pagination_element, rows);
+            });
+
+            $('#first').on('click', function () {
+                currentPage = 1
+                displayList(movieResults, list_element, rows, currentPage);
+                setupPagination(movieResults, pagination_element, rows);
+            });
+
+            $('#last').on('click', function () {
+                currentPage = Math.ceil(movieResults.length / rows);
+                displayList(movieResults, list_element, rows, currentPage);
+                setupPagination(movieResults, pagination_element, rows);
+            });
 
            
         }
