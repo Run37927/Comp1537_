@@ -22,7 +22,6 @@ function getInfo() {
             movieResults = data.results;
 
          
-
             function displayList(items, wrapper, rows_per_page, page) {
                 wrapper.innerHTML = "";
                 page--;
@@ -33,8 +32,8 @@ function getInfo() {
 
                 for (let i = 0; i < paginatedItems.length; i++) {
                     let item = paginatedItems[i];
-                    count = i + 1;
-                    $('#result').append("#" + count + " " + item.original_title + "<br>");
+                    x = i + 1
+                    $('#result').append("#" + x + " " + item.original_title + "<br>");
                     $('#result').append(item.overview +"<br>");
                 
                     address = item.poster_path
@@ -102,6 +101,13 @@ function getInfo() {
 
             $('#last').on('click', function () {
                 currentPage = Math.ceil(movieResults.length / rows);
+                displayList(movieResults, list_element, rows, currentPage);
+                setupPagination(movieResults, pagination_element, rows);
+            });
+
+            
+            $('#movie_per_page').on('change', function () {
+                rows = $('#movie_per_page').val();
                 displayList(movieResults, list_element, rows, currentPage);
                 setupPagination(movieResults, pagination_element, rows);
             });
