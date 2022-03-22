@@ -32,7 +32,8 @@ function getInfo() {
 
                 for (let i = 0; i < paginatedItems.length; i++) {
                     let item = paginatedItems[i];
-                    x = i + 1
+                    
+                    x = paginatedItems.length * page + i + 1
                     $('#result').append("#" + x + " " + item.original_title + "<br>");
                     $('#result').append(item.overview +"<br>");
                 
