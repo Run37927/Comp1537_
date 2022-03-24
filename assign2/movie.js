@@ -13,7 +13,7 @@ function getInfo() {
     const pagination_element = document.getElementById('pagination_wrapper');
 
     let currentPage = 1;
-    let rows = 5;
+    let rows = 3;
 
     $.ajax({
         "url":`https://api.themoviedb.org/3/search/movie?api_key=ed4ef9b0f9bcb9c237ab83a2c2ffb909&query=${x}`,
@@ -87,9 +87,10 @@ function getInfo() {
                 setupPagination(movieResults, pagination_element, rows);
             });
 
-                       
+            
             $('#next_btn').on('click', function () {
-                currentPage = Math.min(currentPage + 1, 4);
+                maxNum = Math.ceil(movieResults.length / rows)
+                currentPage = Math.min(currentPage + 1, maxNum);
                 displayList(movieResults, list_element, rows, currentPage);
                 setupPagination(movieResults, pagination_element, rows);
             });
@@ -108,23 +109,30 @@ function getInfo() {
 
             
             $('#movie_per_page').on('change', function () {
-                rows = $('#movie_per_page').val();
+                rows = Number($('#movie_per_page').val());
                 displayList(movieResults, list_element, rows, currentPage);
                 setupPagination(movieResults, pagination_element, rows);
             });
 
            
         }
+    }).then(()=>{ 
+        $('#first').show();
+        $('#last').show();
+        $('#prev_btn').show();
+        $('#next_btn').show();
     });
-
-
 }
 
 
 
 function setup() {
     $('#getMovie').click(getInfo);
-    $('body').on("click", ".back_drop", displayBackDrop)
+    $('body').on("click", ".back_drop", displayBackDrop);
+    $('#first').hide();
+    $('#last').hide();
+    $('#prev_btn').hide();
+    $('#next_btn').hide();
 
 }
 
