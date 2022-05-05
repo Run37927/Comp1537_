@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMP2537 ASSIGN1 HAIRUN HUANG</title>
+    <link href="http://fonts.cdnfonts.com/css/games" rel="stylesheet">
+    <style>
+        @import url('http://fonts.cdnfonts.com/css/games');
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="code.js"></script>
+</head>
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="./index.html">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+      </div>
+      
+      <!-- Use any element to open the sidenav -->
+      <span onclick="openNav()">open navbar</span>
+
+    <header>
+        <div id="logo">
+        <img src="pokeLogo.png" alt="logo" width="250px" height="130px" >
+        </div>
+    </header>
+
+
+    <nav>
+        <div class="selections">
+            <div id="species">
+                
+                <label for="species">SPECIES</label>
+                    <select name="species" id="species">
+                        <option value="bulbasaur">Bulbasaur</option>
+                        <option value="blastoise">Blastoise</option>
+                        <option value="snorlax">Snorlax</option>
+                        <option value="ninetales">Ninetales</option>
+                        <option value="squirtle">Squirtle</option>
+                        <option value="dragonite">Dragonite</option>
+                        <option value="arcanine">Arcanine</option>
+                    </select> 
+                
+            </div>
+
+            <div id="type">
+                
+                    <label for="type">TYPE</label>
+                        <select name="type" id="type">
+                            <option value="grass">grass</option>
+                            <option value="bug">bug</option>
+                            <option value="dark">dark</option>
+                            <option value="dragon">dragon</option>
+                            <option value="electric">electric</option>
+                            <option value="fairy">fairy</option>
+                            <option value="fighting">fighting</option>
+                            <option value="fire">fire</option>
+                            <option value="flying">flying</option>
+                            <option value="ghost">ghost</option>
+                            <option value="ground">ground</option>
+                            <option value="ice">ice</option>
+                            <option value="normal">normal</option>
+                            <option value="poison">poison</option>
+                            <option value="psychic">psychic</option>
+                            <option value="rock">rock</option>
+                            <option value="steel">steel</option>
+                            <option value="water">water</option>
+                        </select> 
+                
+            </div>
+
+
+
+            <div id="search">
+                
+                    <label for="search">SEARCH</label>
+                    <input type="text" id="searchPoke" name="search" placeholder="search by name">
+                    <button id="getPokemon">Get Pokemon</button>
+               
+            </div>
+        </div>
+        
+     
+    </nav>
+
+    <main>
+
+    </main>
+
+    <footer>
+
+        <p>Copyrighht &copy; My Website 2022</p>
+        <a href=""><img src="fb.png" width="30" height="30"></a>
+        <a href=""><img src="insta.png" width="30" height="30"></a>
+        <a href=""><img src="twitter.png" width="30" height="30"></a>
+    </footer>
+
+</body>
+
+</html>
