@@ -128,16 +128,36 @@ function getPokemon() {
 }
 
 
+function getPokemonByAbility() {
+    pokeAbility = $("#searchByAbilities").val();
+
+    $.ajax({
+        url: `https://pokeapi.co/api/v2/ability/${pokeAbility}/`,
+        type: "GET",
+        success: function(data) {
+            pokename = ""
+            pokemonsWithThisAbility = data.pokemon.map((obj_) => {
+                return obj_.pokemon.name
+            });
+         
+            for (i=0; i<20; i++) {
+                pokename += `<div>${pokemonsWithThisAbility[i]}</div>`
+            }
+            $("main").html(pokename)
+
+         
+        }
+    })
+}
 
 
-
-
-  
 function setup() {
     loadPokemonImages();
 
     // search by name
     $('#getPokemon').click(getPokemon);
+    // search by ability
+    $("#getByAbilities").click(getPokemonByAbility)
 
     
     $("#type").change(() => {
@@ -146,11 +166,7 @@ function setup() {
         displayByType(pokeType);  
     })
 
-    $("#species").change(() => {
-        pokeSpecies = $("#species option:selected").val();
-        // console.log(pokeType)
-        displayBySpecies(pokeSpecies);  
-    })
+
 }
 
 $(document).ready(setup);
