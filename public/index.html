@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="code.js"></script>
+    <link rel="stylesheet" href="unicorn.css" />
+    <title>Assignment 3</title>
+</head>
+<body>
+    <header>
+        <h2>🦄Search Unicorns🦄</h2>
+    </header>
+
+    <div class="container">
+
+        <h3>By Name</h3>
+        <input type="text" id="unicorn_name" placeholder="search by name">
+        <button id="grab_name">Submit</button><br>
+        
+        <h3>By Weight</h3>
+        <input type="text" id="unicorn_weight_min" placeholder="Minimum" />
+        <input type="text" id="unicorn_weight_max" placeholder="Maximum" />
+        <button id="grab_weight">Submit</button><br>
+        
+        <h3>By Favorite Food</h3>
+        <input type="checkbox" id="apple" name="apple" value="apple">
+        <label for="apple"> Apple🍎</label><br>
+        <input type="checkbox" id="carrot" name="carrot" value="carrot">
+        <label for="carrot"> Carrot🥕</label><br>
+        <button id="grab_food">Submit</button>
+
+        <div id="filter">
+        <h3>Filter/Projection</h3>
+        <input type="checkbox" id="check_name" name="check_name" value="check_name">
+        <label for="name_filter">Name</label><br>
+        <input type="checkbox" id="check_weight" name="check_weight" value="check_weight">
+        <label for="weight_filter">Weight</label><br>
+        <button id="filter_button">Submit</button>
+        </div>
+
+        
+        <hr>
+        <h3>Results</h3>
+       
+    </div>
+
+
+    <table width="100%">
+
+    <tbody>
+    </tbody>
+    </table>
+
+
+</body>
+</html>
