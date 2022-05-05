@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express()
+// const cors = require('cors');
 app.set('view engine', 'ejs');
 const https = require('https')
-
+// app.use(cors({
+//     origin: '*',
+//   }));
 app.listen(5000, function (err) {
     if (err) console.log(err);
 })
@@ -11,36 +14,36 @@ app.listen(5000, function (err) {
 //     res.send('<h1>GET request to homepage</h1>')
 // })
 
-app.get('profile/:id', function(req, res) {
-    const url = `https://pokeapi.co/api/v2/characteristic/${req.params.id}`
-    data = ""
-    https.get(url, function(https_res) {
-        https_res.on("data", function(chunk) {
-            data += chunk;
-        })
 
-        https_res.on("end", function() {
-            data = JSON.parse(data);
-            descriptionsArray = data.descriptions.filter((obj_) => {
-                return obj_.language.name == "en";
-            }).map((obj2) => {
-                return obj2.description
-            });
+// app.get('profile/:id', function(req, res) {
+//     const url = `https://pokeapi.co/api/v2/characteristic/${req.params.id}`
+//     data = ""
+//     https.get(url, function(https_res) {
+//         https_res.on("data", function(chunk) {
+//             data += chunk;
+//         })
 
-            res.render("profile.ejs", {
-                "id": req.params.id,
-                "description": descriptionsArray[0]
-            });
-        })
-    })
-})
+//         https_res.on("end", function() {
+//             data = JSON.parse(data);
+//             descriptionsArray = data.descriptions.filter((obj_) => {
+//                 return obj_.language.name == "en";
+//             }).map((obj2) => {
+//                 return obj2.description
+//             });
+
+//             res.render("profile.ejs", {
+//                 "id": req.params.id,
+//                 "description": descriptionsArray[0]
+//             });
+//         })
+//     })
+// })
 
 app.get('/profile/:id', function (req, res){
 
     const url = `https://pokeapi.co/api/v2/pokemon/${req.params.id}`
 
     data = ""
-
 
     https.get(url, function(https_res) {
         https_res.on("data", function(chunk) {
