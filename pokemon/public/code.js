@@ -135,17 +135,21 @@ function getPokemonByAbility() {
         url: `https://pokeapi.co/api/v2/ability/${pokeAbility}/`,
         type: "GET",
         success: function(data) {
+            abilityName = data.names.filter((obj1) => {
+                return obj1.language.name == "ja-Hrkt";
+            }).map((obj2) => {
+                return obj2.name
+            });
+
             pokename = ""
             pokemonsWithThisAbility = data.pokemon.map((obj_) => {
                 return obj_.pokemon.name
             });
          
-            for (i=0; i<20; i++) {
+            for (i=0; i<10; i++) {
                 pokename += `<div>${pokemonsWithThisAbility[i]}</div>`
             }
-            $("main").html(pokename)
-
-         
+            $("main").html(`<div class="abilitypoke">` + abilityName + pokename + `</div>`)
         }
     })
 }

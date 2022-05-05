@@ -87,6 +87,11 @@ footer {
     height: 100%;
 }
 
+.abilitypoke {
+    display: flex;
+    flex-direction: column;
+    font-size: xx-large;
+}
 
 /* The side navigation menu */
 .sidenav {
