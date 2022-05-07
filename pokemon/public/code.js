@@ -102,8 +102,9 @@ function displayByType(typeOfPokemon) {
 };
 
 function getPokemon() {
+
+    remove_button = "<button class='remover'> Remove me </button>";
     pokeName = $("#searchPoke").val();
-    // console.log(pokeName)
     
     $.ajax(
         {
@@ -112,7 +113,7 @@ function getPokemon() {
             "success": function (data) {
                 // console.log(data)
             
-                images = `<div class="imgContainer">
+                images = `<div class="">
                 <div>NO. ${data.id}</div>
                 <a href="/profile/${data.id}">
                 <img src="${data.sprites.other["official-artwork"].front_default}">
@@ -120,7 +121,9 @@ function getPokemon() {
                 <div class="pokeName">${data.name}</div>
                 </div>`
                 
-                $("main").html(images);
+                $("main").html("<h1>History</h1>");
+                $("#history").append(images + remove_button);
+
             
             }
         }
@@ -154,6 +157,9 @@ function getPokemonByAbility() {
     })
 }
 
+hide = function () {
+    jQuery(this).parent().empty();
+}
 
 function setup() {
     loadPokemonImages();
@@ -169,7 +175,7 @@ function setup() {
         // console.log(pokeType)
         displayByType(pokeType);  
     })
-
+    $('body').on('click', '.remover', hide);
 
 }
 
