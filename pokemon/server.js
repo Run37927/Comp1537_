@@ -40,7 +40,6 @@ app.listen(5000, function (err) {
 // })
 
 app.get('/profile/:id', function (req, res){
-
     const url = `https://pokeapi.co/api/v2/pokemon/${req.params.id}`
 
     data = ""

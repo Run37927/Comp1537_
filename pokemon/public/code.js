@@ -158,6 +158,7 @@ function getPokemonByAbility() {
 }
 
 hide = function () {
+    console.log(this.parent())
     jQuery(this).parent().empty();
 }
 
