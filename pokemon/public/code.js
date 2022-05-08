@@ -8,12 +8,9 @@ function openNav() {
   }
 
 
-
-
+// global variable images
 images = ""
-
 function processPoke(data) {
-    // console.log(data)
     images += `<div class="imgContainer">
     <div>NO. ${data.id}</div>
     <a href="/profile/${data.id}">
@@ -47,30 +44,7 @@ async function loadPokemonImages() {
     $("main").html(images);
 }
 
-function displayBySpecies(speciesOfPokemon) {
-    $("main").empty();
-    for (i = 1; i <=150; i++) {
-        $.ajax({
-            type: "GET",
-            url:`https://pokeapi.co/api/v2/pokemon/${i}/`,
-            success: function (data) {
-            
-                if (data.species.name == speciesOfPokemon) {
-                    
-                    images = `<div class="imgContainer">
-                    <div>NO. ${data.id}</div>
-                    <a href="/profile/${data.id}">
-                    <img src="${data.sprites.other["official-artwork"].front_default}">
-                    </a>
-                    <div class="pokeName">${data.name}</div>
-                    </div>`
 
-                    $("main").append(images);
-                }  
-            }
-        })
-    }
-}
 
 function displayByType(typeOfPokemon) {
     $("main").empty();
@@ -91,19 +65,16 @@ function displayByType(typeOfPokemon) {
                         </div>`
 
                         $("main").append(images);
-
                     }
                  
                 }
             }
         })
     }
-
 };
 
 function getPokemon() {
 
-    remove_button = "<button class='remover'> Remove me </button>";
     pokeName = $("#searchPoke").val();
     
     $.ajax(
@@ -111,20 +82,22 @@ function getPokemon() {
             url:`https://pokeapi.co/api/v2/pokemon/${pokeName}/`,
             type: "GET",
             "success": function (data) {
-                // console.log(data)
-            
-                images = `<div class="">
-                <div>NO. ${data.id}</div>
-                <a href="/profile/${data.id}">
-                <img src="${data.sprites.other["official-artwork"].front_default}">
-                </a>
-                <div class="pokeName">${data.name}</div>
-                </div>`
-                
-                $("main").html("<h1>History</h1>");
-                $("#history").append(images + remove_button);
 
-            
+                if (pokeName == Number(pokeName)) {
+                    alert("Enter a name only")
+                } else {
+                    images = `<div class="">
+                    <div>NO. ${data.id}</div>
+                    <a href="/profile/${data.id}">
+                    <img src="${data.sprites.other["official-artwork"].front_default}">
+                    </a>
+                    <div class="pokeName">${data.name}</div>
+                    <button class='remover'> Remove me </button>
+                    </div>`
+                    
+                    $("main").html("<h1>History</h1>");
+                    $("#history").append(images);
+                }
             }
         }
     )
@@ -139,7 +112,7 @@ function getPokemonByAbility() {
         type: "GET",
         success: function(data) {
             abilityName = data.names.filter((obj1) => {
-                return obj1.language.name == "ja-Hrkt";
+                return obj1.language.name == "en";
             }).map((obj2) => {
                 return obj2.name
             });
@@ -152,13 +125,13 @@ function getPokemonByAbility() {
             for (i=0; i<10; i++) {
                 pokename += `<div>${pokemonsWithThisAbility[i]}</div>`
             }
-            $("main").html(`<div class="abilitypoke">` + abilityName + pokename + `</div>`)
+            $("main").html(`<div class="abilitypoke">` + `<div class="abilityName">`+ abilityName + `</div>` + pokename + `</div>`)
         }
     })
 }
 
 hide = function () {
-    console.log(this.parent())
+    console.log(this)
     jQuery(this).parent().empty();
 }
 

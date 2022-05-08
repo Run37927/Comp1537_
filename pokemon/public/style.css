@@ -91,7 +91,14 @@ footer {
     display: flex;
     flex-direction: column;
     font-size: xx-large;
+    text-align: center;
 }
+
+.abilityName {
+    background-color: black;
+    color: yellow;
+}
+
 
 /* The side navigation menu */
 .sidenav {
