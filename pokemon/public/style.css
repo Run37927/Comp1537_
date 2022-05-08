@@ -27,7 +27,6 @@ body {
 }
 
 
-
 .imgContainer img {
    width: 100%;
    height: 100%;
@@ -47,23 +46,6 @@ footer {
     text-align: center;
     clear: both;
 
-}
-
-@media screen and (max-width: 600px) {
-    /* .container {
-        width: 100%;
-        float: none;
-        padding: 10px 0;
-    }
-    #img_container {
-        width: 100%;
-    } */
-    
-    nav div, nav{
-        display: flex;
-        flex-direction: column;
-        text-align: center; 
-    }
 }
 
 
@@ -145,8 +127,24 @@ footer {
     padding: 20px;
   }
   
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+  /* On smaller screens, where height is less than 500px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-width: 500px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+    nav div, nav{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center; 
+    }
+
+    .imgGroup {
+        width: 100%;
+    }
+
   }
+
