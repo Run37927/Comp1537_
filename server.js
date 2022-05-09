@@ -8,6 +8,8 @@ app.listen(process.env.PORT || 5000, function (err) {
         console.log(err);
 })
 
+app.use(express.static('./public'));
+
 app.get('/profile/:id', function (req, res){
     const url = `https://pokeapi.co/api/v2/pokemon/${req.params.id}`
 
@@ -70,24 +72,14 @@ app.get('/profile/:id', function (req, res){
                 "speed": statsArraySpeed[0],
                 "specialattack": statsArraySpecialAttack[0],
                 "abilities": abilitiesArray,
-                "type": typesArray,
-                "evolution1": "",
-                "evolution2": "",
-                "evolution3": ""
+                "type": typesArray
             });
         })
     })
  
-
-    // res.json({
-    //     "k1": "v1",
-    //     "k2": "v2",
-    //     "k3": "v3",
-    // })
 })
 
 // app.get('/', function(req, res) {
 //     res.sendFile(__dirname + "/index.html");
 // })
 
-app.use(express.static('./public'));

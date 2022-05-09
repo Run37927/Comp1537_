@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+   height: 100px;
+}
+
+div#logo {
+    position: absolute;
+    left: 42%;
+}
+
+.selections {
+    font-size: x-large;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+body {
+    background-image: url(./bgcolor.png);
+    background-repeat: repeat;
+    font-family: 'Games', sans-serif;
+
+}
+
+
+.imgContainer img {
+   width: 100%;
+   height: 100%;
+}
+
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    clear: both;
+
+}
+
+
+.imgContainer {
+    height: 30%;
+    background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
+    border-radius: 18px;
+    margin: 20px;
+    padding: 50px;
+    box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
+    text-align: center;
+    font-size: xx-large;
+    /* transition: all .2s ease-in-out; */
+}
+
+.imgGroup {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100%;
+}
+
+.abilitypoke {
+    display: flex;
+    flex-direction: column;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.abilityName {
+    background-color: black;
+    color: yellow;
+}
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #FFF;
+    opacity: 0.7;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 90px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 10px 8px 10px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: black;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 500px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-width: 500px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+    nav div, nav{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center; 
+    }
+
+    .imgGroup {
+        width: 100%;
+    }
+
+  }
+

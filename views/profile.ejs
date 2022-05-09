@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.cdnfonts.com/css/games" rel="stylesheet">
+    <style>
+        @import url('http://fonts.cdnfonts.com/css/games');
+    </style>
+    <title>details</title>
+    <style>
+        body {
+            font-family: 'Games', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        #infoCard {
+            overflow: auto;
+            position:relative;
+            border-radius: 18px;
+            height: 590px;
+            width: 60%;
+            margin: 7% auto;
+            background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
+            box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
+        }
+
+        #leftColumn {
+            position: absolute;
+            border-radius: 18px;
+            height: 550px;
+            width: 300px;
+            top:20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.47);
+        }
+
+        #pokeID {
+            font-size: xx-large;
+            font-weight: bolder;
+            position: absolute;
+            height: 60px;
+            width: 120px;
+            top: 50px;
+            left: 100px;
+        }
+
+        #pokeName {
+            font-size: xx-large;
+            font-weight: bolder;
+            position: absolute;
+            top: 100px;
+            left: 75px;
+        }
+
+        #photoPoke{
+           position: absolute;
+           top: 150px;
+           left: 77px;
+        }
+
+        #weight {
+            position: absolute;
+          font-size: x-large;
+          top: 330px;
+           left: 85px;
+        }
+
+        #height {
+            position: absolute;
+            font-size: x-large;
+            top: 380px;
+            left: 85px;
+        }
+
+        #type {
+            position: absolute;
+            font-weight: bolder;
+            font-size: x-large;
+            top: 450px;
+            left: 70px;
+        }
+
+        #rightcol {
+            position: absolute;
+            border-radius: 18px;
+            height: 550px;
+            width: 55%;
+            top:20px;
+            right: 20px;
+        }
+
+        .title {
+            font-weight: bolder;
+            font-size: x-large;
+            margin: 10px;
+        }
+
+        #details {
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.47);
+            border-radius: 18px;
+            margin: 5px;
+        }
+
+        #detailAbility {
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.47);
+            border-radius: 18px;
+            margin: 5px;
+
+        }
+
+        #stats {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.47);
+            border-radius: 18px;
+            margin: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .statGroup {
+            color: #ff2ca8;
+        }
+
+        #evolutionContainer {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            
+        }
+        .arrow {
+            margin-top: 40px;
+            margin-right: 10px;
+        }
+
+        .evolution {
+            background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
+            box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
+            border-radius: 38% 69% 65% 40%/42% 45% 58% 61%;
+            transition: 0.5s ease;
+            animation: animate 10s linear infinite;
+            height: 110px;
+            width: 115px;
+            margin: 0 10px 0 0;
+            padding-top: 10px;
+      }
+
+      @keyframes animate {
+          0% {
+              transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+      }
+
+    
+    </style>
+</head>
+<body>
+
+    <div id="infoCard">
+        <div id="leftColumn">
+            <div id="pokeID"> NO.
+               <%= id %>
+            </div>
+
+            <div id="pokeName">
+                <%= name %>
+            </div>
+
+            <div id="photoPoke">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%= id %>.png" alt="poke" width="150px" height="157px">
+            </div>
+
+            <div id="weight">
+                Weight:
+                <%= weight %>
+            </div>
+
+            <div id="height">
+                Height:
+                <%= height %>
+            </div>
+
+            <div id="type">
+                <%= type %>
+            </div>
+        </div>
+
+        <div id="rightcol">
+            <div class="title">About</div>
+            <div id="details">
+             I will get back to it.
+            </div>
+            <div class="title">Abilities</div>
+            <div id="detailAbility">
+                <%= abilities %>
+            </div>
+
+            <div class="title">Base Stats</div>
+            <div id="stats">
+                <div class="statGroup">
+                    HP <br>
+                    <progress id="file" value="<%= hp %>" max="255"></progress>
+                </div>
+                <div class="statGroup">
+                    ATTACK <br>
+                    <progress id="file" value="<%= attack %>" max="134"></progress>
+                </div>
+                <div class="statGroup">
+                    DEFENSE <br>
+                    <progress id="file" value="<%= defense %>" max="160"></progress>
+                </div>
+                <div class="statGroup">
+                   SPEED<br>
+                    <progress id="file" value="<%= speed %>" max="200"></progress>
+                </div>
+                <div class="statGroup">
+                    SPECIAL ATTACK<br>
+                     <progress id="file" value="<%= specialattack %>" max="504"></progress>
+                </div>
+            </div>
+
+            <div class="title">EVOLUTION</div>
+            <div id="evolutionContainer">
+                <div class="evolution">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="" width="90px" height="90px">
+                </div>
+                <div class="arrow">
+                    ➡
+                </div>
+                   
+                <div class="evolution">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg" alt="" width="90px" height="90px">
+                </div>
+
+                <div class="arrow">
+                    ➡
+                </div>
+                <div class="evolution">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg" alt="" width="90px" height="90px">
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+</body>
+</html>
