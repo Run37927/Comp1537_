@@ -7,6 +7,9 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "0";
   }
 
+  var now = new Date(Date.now());
+  var formatted = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+  
 
 // global variable images
 images = ""
@@ -27,11 +30,11 @@ async function loadPokemonImages() {
             images += `<div class="imgGroup">`
         }
         
-        x = Math.floor(Math.random() * 100) + 1;
+        x = Math.floor(Math.random() * 20) + 1;
 
         await $.ajax({
             type: "GET",
-            url: `https://pokeapi.co/api/v2/pokemon/${x}/`,
+            url: `http://localhost:5000/api/v2/pokemon/${x}/`,
             success: processPoke
         })
     
@@ -51,7 +54,7 @@ function displayByType(typeOfPokemon) {
     for (i = 1; i<150; i++) {
         $.ajax({
             type: "GET",
-            url:`https://pokeapi.co/api/v2/pokemon/${i}/`,
+            url:`http://localhost:5000/api/v2/pokemon/${i}/`,
             success: function (data) {
                 for (x of data.types) {
                     if (x.type.name == typeOfPokemon) {
@@ -79,13 +82,11 @@ function getPokemon() {
     
     $.ajax(
         {
-            url:`https://pokeapi.co/api/v2/pokemon/${pokeName}/`,
+            url:`http://localhost:5000/api/v2/pokemon/${pokeName}/`,
             type: "GET",
             "success": function (data) {
-
-                if (pokeName == Number(pokeName)) {
-                    alert("Enter a name only")
-                } else {
+                console.log(data)
+            
                     images = `<div class="">
                     <div>NO. ${data.id}</div>
                     <a href="/profile/${data.id}">
@@ -97,7 +98,7 @@ function getPokemon() {
                     
                     $("main").html("<h1>History</h1>");
                     $("#history").append(images);
-                }
+                
             }
         }
     )
@@ -135,20 +136,54 @@ hide = function () {
     jQuery(this).parent().empty();
 }
 
+function insertSearchEventToTimeline(pokeType) {
+    $.ajax({
+        url: "http://localhost:5000/timeline/insert",
+        type: "PUT",
+        data: {
+            text: `Client has searched for ${pokeType}`,
+            time: `${now}`,
+            hits: 1
+        },
+        success: function(r) {
+            console.log(r)
+        }
+    })
+}
+
+function insertEventByName() {
+    nameOfPokes = document.getElementById("searchPoke").value
+    $.ajax({
+        url: "http://localhost:5000/timeline/insert",
+        type: "put",
+        data: {
+            text: `Client has searched for Pokemon name: ${nameOfPokes}`,
+            time: `${now}`,
+            hits: 1
+        },
+        success: function (r) {
+            console.log(r)
+        }
+    })
+}
+
 function setup() {
     loadPokemonImages();
 
     // search by name
     $('#getPokemon').click(getPokemon);
+    $('#getPokemon').click(insertEventByName);
     // search by ability
     $("#getByAbilities").click(getPokemonByAbility)
 
     
     $("#type").change(() => {
         pokeType = $("#type option:selected").val();
-        // console.log(pokeType)
-        displayByType(pokeType);  
+        displayByType(pokeType);
+
+        insertSearchEventToTimeline(pokeType)
     })
+
     $('body').on('click', '.remover', hide);
 
 }

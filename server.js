@@ -29,10 +29,6 @@ app.get("/api/v2/pokemon/:pokemonid", function(req, res){
     res.send(pokemons.pokemon[req.params.pokemonid])
 })
 
-app.get("/api/v2/pokemon/:pokemonname", function(req, res){
-    res.send(pokemons.pokemon[req.params.pokemonname])
-})
-
 app.get("/api/v2/ability/:pokeability", function(req, res){
     res.send(abilities.pokemon[req.params.pokeability])
 })
@@ -163,7 +159,7 @@ app.get('/timeline/increaseHits/:id', function(req,res) {
             console.log('data' + data);
         }
 
-        res.send("update is successful");
+        res.send(data);
     })
 })
 
