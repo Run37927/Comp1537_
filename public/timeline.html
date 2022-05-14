@@ -37,15 +37,31 @@
                 box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
                 background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
                 border-style: none;
+                cursor: pointer;
+                width: 6rem;
+                height: 2rem;
             }
 
             .deleteBtn {
                 box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
                 background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
                 border-style: none;
+                cursor: pointer;
+                width: 6rem;
+                height: 2rem;
             }
 
-            @media screen and (max-width: 500px) {
+            #goback {
+                position: absolute;
+                left: 12%;
+                box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
+                background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
+                border-style: none;
+                width: 8rem;
+                height: 3rem;
+                cursor: pointer;
+            }
+            @media screen and(max-width: 500px) {
 
                 div#box {
                     width: 90%;
@@ -56,6 +72,17 @@
     </head>
     <body>
         <h1>welcome to the global timeline</h1>
-        <main></main>
+        <main>
+           
+        </main>
+
+       
+        <button id="goback">Go back home</button>
+        <script>
+
+            document.getElementById("goback").onclick = function () {
+                location.href = "./index.html";
+            };
+        </script>
     </body>
 </html>
