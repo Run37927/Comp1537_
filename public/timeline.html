@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/timeline.js"></script>
-</head>
-<body>
-    <h1>welcome to the global timeline</h1>
-    <main></main>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="/timeline.js"></script>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            h1 {
+                margin: auto;
+            }
+            body {
+                background-image: url('./bgcolor.png');
+                background-repeat: repeat;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+        
+            div#box {
+                width: 30%;
+                height: 200px;
+                background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
+                border-radius: 18px;
+                margin: 20px;
+                padding: 50px;
+                box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
+                text-align: center;
+        
+            }
+
+            .likeBtn{
+                box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
+                background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
+                border-style: none;
+            }
+
+            .deleteBtn {
+                box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
+                background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
+                border-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>welcome to the global timeline</h1>
+        <main></main>
+    </body>
 </html>

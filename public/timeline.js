@@ -2,20 +2,20 @@
 
 function loadEvents() {
     $.ajax({
-        url:'https://afternoon-gorge-05391.herokuapp.com/timeline/getAllEvents',
+        url:'http://localhost:5000/timeline/getAllEvents',
         type: "GET",
         success: (data) => {
             console.log(data);
             for ( i=0; i< data.length; i++) {
                 $("main").append(
-                `<p>
+                `<div id='box'>
                 Event text - ${data[i].text} <br>
                 Event time - ${data[i].time} <br>
                 Event hits - ${data[i].hits} <br>
                 
                 <button class="likeBtn" id="${data[i]["_id"]}"> Like </button>
                 <button class="deleteBtn" id="${data[i]["_id"]}"> Delete </button>
-                </p>
+                </div>
                 `)
             }
        
@@ -26,7 +26,7 @@ function loadEvents() {
 function incrementHitsByOne() {
     x = this.id
     $.ajax({
-        url: `https://afternoon-gorge-05391.herokuapp.com/timeline/increaseHits/${x}`,
+        url: `http://localhost:5000/timeline/increaseHits/${x}`,
         type: "GET",
         success: () => {
             location.reload();
@@ -38,7 +38,7 @@ function incrementHitsByOne() {
 function deleteDiv() {
     x = this.id
     $.ajax({
-        url: `https://afternoon-gorge-05391.herokuapp.com/timeline/remove/${x}`,
+        url: `http://localhost:5000/timeline/remove/${x}`,
         type: "GET",
         success: (e) => {
             location.reload();
