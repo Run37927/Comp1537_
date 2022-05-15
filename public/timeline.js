@@ -1,5 +1,3 @@
-
-
 function loadEvents() {
     $.ajax({
         url:'http://localhost:5000/timeline/getAllEvents',
