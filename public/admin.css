@@ -16,6 +16,7 @@
 body {
     min-height: 100vh;
     overflow-x: hidden;
+    background: url(./bgcolor.png);
 }
 
 .container {
@@ -59,7 +60,7 @@ body {
 
 .navigation ul li:hover,
 .navigation ul li.hovered {
-    background: var(--white);
+    background: url(./bgcolor.png);
 }
 
 .navigation ul li a {
@@ -262,6 +263,7 @@ body {
     display: grid;
     min-height: 400px;
     padding: 20px;
+    background: var(--white);
     box-shadow: 0 7px 25px rgba(0, 0, 0, .08); 
     border-radius: 20px;  
 }
@@ -358,6 +360,7 @@ body {
     display: grid;
     min-height: 500px;
     padding: 20px;
+    background: var(--white);
     box-shadow: 0 7px 25px rgba(0,0,0,.08);
     border-radius: 20px;
 }
