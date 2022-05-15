@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 header {
@@ -9,6 +10,7 @@ header {
 div#logo {
     position: absolute;
     left: 42%;
+    top: -28px;
 }
 
 .selections {
@@ -22,8 +24,7 @@ div#logo {
 body {
     background-image: url(./bgcolor.png);
     background-repeat: repeat;
-    font-family: 'Games', sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -45,7 +46,10 @@ footer {
     margin-top: 30px;
     text-align: center;
     clear: both;
-
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: 600;
+    font-size: 1.25rem;
 }
 
 
@@ -58,7 +62,31 @@ footer {
     box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
     text-align: center;
     font-size: xx-large;
-    /* transition: all .2s ease-in-out; */
+    position: relative;
+    overflow: hidden;
+}
+
+.bag-btn {
+    position: absolute;
+    right: 0;
+    top: 70%;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.6rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    background: #FDDA0D;
+    transition: 0.3s ease-in-out;
+    transform: translateX(101%);
+}
+
+.imgContainer:hover .bag-btn {
+    transform: translateX(0);
+}
+
+.imgContainer:hover img {
+    opacity: 0.5;
 }
 
 .imgGroup {
@@ -67,6 +95,11 @@ footer {
     justify-content: space-around;
     flex-direction: column;
     height: 100%;
+}
+
+.pokeID, .pokeName {
+    font-weight: 600;
+    text-transform: capitalize;
 }
 
 .abilitypoke {
@@ -81,6 +114,16 @@ footer {
     color: yellow;
 }
 
+div.preheader {
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: rgb(220, 220, 220);
+    opacity: 0.75;
+}
+
 
 /* The side navigation menu */
 .sidenav {
@@ -91,13 +134,30 @@ footer {
     top: 0; /* Stay at the top */
     left: 0;
     background-color: #FFF;
-    opacity: 0.7;
+    opacity: 0.9;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 90px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    font-weight: 600;
   }
   
-  /* The navigation menu links */
+
+.myCart {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background-color: #FFF;
+    opacity: 0.9;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-y: scroll;
+    padding-top: 90px; /* Place content 60px from the top */
+    transition: 0.5s;
+  }
+
+  /* The cart menu links */
   .sidenav a {
     padding: 10px 8px 10px 32px;
     text-decoration: none;
@@ -106,9 +166,40 @@ footer {
     display: block;
     transition: 0.3s;
   }
+
+  .myCart a {
+    padding: 10px 8px 10px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  #openNav, #openCart {
+      cursor: pointer;
+  }
+
+  #openCart {
+      position: relative;
+  }
+
+  .preheader #numberOfItems {
+      position: absolute;
+      left: 20px;
+      top: -12px;
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+      color: black;
+      background: #FDDA0D;
+      padding: 0 3px;
+      border-radius: 30%;
   
+  }
   /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
+  .sidenav a:hover,
+  .myCart a:hover {
     color: black;
   }
   
@@ -121,15 +212,83 @@ footer {
     margin-left: 50px;
   }
   
+  .myCart .closebtn {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 36px;
+      margin-right: 50px;
+
+  }
   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
   #main {
     transition: margin-left .5s;
     padding: 20px;
   }
+
+  .myCart h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+  }
+
+  .myCart .cart-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      grid-column-gap: 1.5rem;
+      margin: 1.5rem 0;
+  }
+
+  .myCart .cart-item img {
+      width: 75px;
+      height: 75px;
+  }
+
+  .myCart .cart-item h4,
+  .myCart .cart-item h5 {
+      font-size: 0.86rem;
+      letter-spacing: 0.1rem;
+  } 
+
+  .myCart .cart-item h5{
+      margin: 0.5rem 0;
+  }
+
+  .myCart .cart-item .item-amount {
+    margin: 0.5rem 0;
+  }
+
+  .myCart .cart-item .remove-item {
+      color: grey;
+      cursor: pointer;
+  }
+
+  .fa-plus, .fa-minus {
+      color: #FDDA0D;
+      cursor: pointer;
+  }
+
+  .clear-cart-btn {
+      padding: 10px 15px;
+      border: none;
+      background: #FDDA0D;
+      color: black;
+      font-size: 1.25rem;
+      font-weight: 500;
+      cursor: pointer;
+  }
+
+  .cart-footer {
+      margin-top: 2rem;
+      text-align: center;
+  }
   
+  .cart-footer h3{
+      margin-bottom: 1rem;
+  }
   /* On smaller screens, where height is less than 500px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-width: 500px) {
-    .sidenav {
+    .sidenav, .myCart{
         padding-top: 15px;
     }
     .sidenav a {
@@ -142,8 +301,11 @@ footer {
         text-align: center; 
     }
 
+    /* .myCart {
+        width: 100vw;
+    } */
     .imgGroup {
-        width: 100%;
+        width: 90vw;
     }
 
   }

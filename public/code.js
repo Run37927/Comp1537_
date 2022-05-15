@@ -1,25 +1,36 @@
+// logic for nav bar and cart nav bar
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
   }
   
-  /* Set the width of the side navigation to 0 */
-  function closeNav() {
+function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
   }
 
-  var now = new Date(Date.now());
-  var formatted = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+function openCart() {
+    document.getElementById("myCart").style.width = "380px";
+}
+
+function closeCart() {
+    document.getElementById("myCart").style.width = "0";
+}
+
+
+// get timestamps
+var now = new Date(Date.now());
+var formatted = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
   
 
 // global variable images
 images = ""
 function processPoke(data) {
     images += `<div class="imgContainer">
-    <div>NO. ${data.id}</div>
+    <div class="pokeID">NO. ${data.id}</div>
     <a href="/profile/${data.id}">
     <img src="${data.sprites.other["official-artwork"].front_default}">
     </a>
     <div class="pokeName">${data.name}</div>
+    <button class="bag-btn" data-id="1">Add to cart</button>
     </div>`
 }
 
