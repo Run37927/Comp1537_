@@ -24,6 +24,9 @@ app.use(bodyparser.urlencoded({
     extended: true
 }));
 
+app.get("/api/v2/pokemon", function(req,res){
+    res.send(pokemons)
+})
 
 app.get("/api/v2/pokemon/:pokemonid", function(req, res){
     res.send(pokemons.pokemon[req.params.pokemonid])

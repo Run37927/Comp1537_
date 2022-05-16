@@ -5,14 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMP2537 ASSIGN1 HAIRUN HUANG</title>
+    <title>COMP2537 ASSIGN3 HAIRUN HUANG</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="code.js"></script>
+   
 </head>
 
-<body>
+<body> 
+
+    <div class="preheader">
+        <span onclick="openNav()" id="openNav"><i class="fa fa-navicon fa-2x"></i></span>
+        <div id="logo">
+          <img src="pokeLogo.png" alt="logo" width="250px" height="130px" >
+      </div>
+        <span onclick="openCart()" id="openCart">
+          <i class="fa fa-cart-plus fa-2x basketBtn"></i>
+          <span id="numberOfItems">0</span>
+      </span>
+    </div>
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -25,20 +36,10 @@
       <div id="myCart" class="myCart">
         <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a>
         <h2>Your Cart</h2>
-        <div class="cart-item">
+        <div class="cart-content">
             <!-- to be added dynamically -->
-            <img src="./avatar.jpg" alt="">
-            <div>
-                <h4>Pikachu</h4>
-                <h5>$9.99</h5>
-                <span class="remove-item">Remove</span>
-            </div>
-
-            <div>
-                <i class="fa fa-plus"></i>
-                <p class="item-amount">1</p>
-                <i class="fa fa-minus"></i>
-            </div>
+    
+            <!-- to be added dynamically -->
         </div>
 
         <div class="cart-footer">
@@ -47,22 +48,9 @@
         </div>
     
       </div>
-      
-      <!-- Use any element to open the sidenav -->
-      <div class="preheader">
-          <span onclick="openNav()" id="openNav"><i class="fa fa-navicon fa-2x"></i></span>
-          <div id="logo">
-            <img src="pokeLogo.png" alt="logo" width="250px" height="130px" >
-        </div>
-          <span onclick="openCart()" id="openCart">
-            <i class="fa fa-cart-plus fa-2x"></i>
-            <span id="numberOfItems">0</span>
-        </span>
-      </div>
 
-    <header>
-      
-    </header>
+
+    <header></header>
 
 
     <nav>
@@ -113,7 +101,11 @@
      
     </nav>
 
-    <main>
+    <main class="products">
+
+        <div class="products-center">
+            <!-- to be added dynamically -->
+        </div>
 
     </main>
     <div id="history"></div>
@@ -125,7 +117,7 @@
         <a href=""><i class="fa fa-linkedin-square fa-2x"></i></a>
         <a href=""><i class="fa fa-youtube-play fa-2x"></i></a>
     </footer>
-
+    <script src="code.js"></script>
 </body>
 
 </html>

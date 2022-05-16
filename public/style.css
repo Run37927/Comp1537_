@@ -28,42 +28,34 @@ body {
 }
 
 
-.imgContainer img {
-   width: 100%;
-   height: 100%;
-}
-
-
-main {
+/* main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+} */
+
+
+/* testing starts here */
+.products {
+    padding: 4rem 0;
 }
 
-
-
-footer {
-    margin-top: 30px;
-    text-align: center;
-    clear: both;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-weight: 600;
-    font-size: 1.25rem;
+.products-center {
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 2rem;
 }
 
-
-.imgContainer {
-    height: 30%;
-    background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
-    border-radius: 18px;
-    margin: 20px;
-    padding: 50px;
-    box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
-    text-align: center;
-    font-size: xx-large;
+.img-container {
     position: relative;
     overflow: hidden;
+    background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
+    border-radius: 18px;
+    box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
 }
 
 .bag-btn {
@@ -80,6 +72,72 @@ footer {
     transition: 0.3s ease-in-out;
     transform: translateX(101%);
 }
+
+.img-container:hover .bag-btn {
+    transform: translateX(0);
+}
+
+.product-img {
+    display: block;
+    width: 100%;
+    min-height: 12rem;
+    transition: 0.3s ease-in;
+}
+
+.img-container:hover .product-img {
+    opacity: 0.5;
+}
+
+.product h3 {
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+.product .pokeID {
+    margin: 8px 0 0 10px;
+}
+
+.product h4 {
+    margin-top: 0.7rem;
+    color: #FDDA0D;
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* testing ends here */
+
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    clear: both;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.imgContainer img {
+    width: 100%;
+    height: 100%;
+ }
+ 
+
+.imgContainer {
+    height: 30%;
+    width: 30%;
+    background: linear-gradient(rgb(220, 220, 220), rgb(187, 201, 228));
+    border-radius: 18px;
+    margin: 20px;
+    padding: 50px;
+    box-shadow: 0 1.6px 1.6px rgb(0 0 0 / 2%), 0 3.8px 3.8px rgb(0 0 0 / 3%), 0 6.9px 6.9px rgb(0 0 0 / 4%), 0 11.4px 11.4px rgb(0 0 0 / 5%), 0 18.8px 18.8px rgb(0 0 0 / 6%), 0 32.8px 32.8px rgb(0 0 0 / 7%), 0 71px 71px rgb(0 0 0 / 9%);
+    text-align: center;
+    font-size: xx-large;
+    position: relative;
+    overflow: hidden;
+}
+
 
 .imgContainer:hover .bag-btn {
     transform: translateX(0);
@@ -152,7 +210,7 @@ div.preheader {
     background-color: #FFF;
     opacity: 0.9;
     overflow-x: hidden; /* Disable horizontal scroll */
-    overflow-y: scroll;
+    overflow-y: auto;
     padding-top: 90px; /* Place content 60px from the top */
     transition: 0.5s;
   }
@@ -231,34 +289,34 @@ div.preheader {
       margin-bottom: 2rem;
   }
 
-  .myCart .cart-item {
+  .myCart .cart-content {
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
       grid-column-gap: 1.5rem;
-      margin: 1.5rem 0;
+      margin: 1.5rem 2rem 1.5rem 0;
   }
 
-  .myCart .cart-item img {
+  .myCart .cart-content img {
       width: 75px;
       height: 75px;
   }
 
-  .myCart .cart-item h4,
-  .myCart .cart-item h5 {
+  .myCart .cart-content h4,
+  .myCart .cart-content h5 {
       font-size: 0.86rem;
       letter-spacing: 0.1rem;
   } 
 
-  .myCart .cart-item h5{
+  .myCart .cart-content h5{
       margin: 0.5rem 0;
   }
 
-  .myCart .cart-item .item-amount {
+  .myCart .cart-content .item-amount {
     margin: 0.5rem 0;
   }
 
-  .myCart .cart-item .remove-item {
+  .myCart .cart-content .remove-item {
       color: grey;
       cursor: pointer;
   }
