@@ -279,6 +279,7 @@ class UI {
                 // display cart item
                 this.addCartItem(cartItem);
                 // show the cart
+                this.showCart();
             })
         })
     }
@@ -312,6 +313,14 @@ class UI {
         cartContent.appendChild(div);
         console.log(cartContent)
     }
+    showCart() {
+        cartDOM.classList.add('showCart');
+    }
+    setupAPP() {
+        cart = Storage.getCart();
+        this.setCartValues(cart);
+        this.populate(cart);
+    }
 }
 
 // local storage
@@ -326,15 +335,23 @@ class Storage {
     static saveCart(cart) {
         localStorage.setItem('cart', JSON.stringify(cart))
     }
+    static getCart() {
+        return localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')):[]
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const ui = new UI();
     const products = new Products();
-    products.getProducts().then(products => {
-        ui.displayProducts(products);
-        Storage.saveProducts(products);
-    }).then(() => {ui.getBagButtons()})
+    // set up application
+    ui.setupAPP();
+    // get all products
+    products.getProducts()
+            .then(products => {
+            ui.displayProducts(products);
+            Storage.saveProducts(products);
+        })
+        .then(() => {ui.getBagButtons()})
 });
 
 
