@@ -73,6 +73,10 @@ body {
     transform: translateX(101%);
 }
 
+.bag-btn:hover {
+    opacity: 0.7;
+}
+
 .img-container:hover .bag-btn {
     transform: translateX(0);
 }
@@ -328,6 +332,7 @@ div.preheader {
 
   .clear-cart-btn {
       padding: 10px 15px;
+      margin-bottom: 20px;
       border: none;
       background: #FDDA0D;
       color: black;

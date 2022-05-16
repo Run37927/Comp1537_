@@ -188,6 +188,7 @@ function insertEventByName() {
 // timeline logic ends here
 
 
+
 // shopping cart logic starts here
 
 // the basket icon in the preheader
@@ -311,7 +312,6 @@ class UI {
             <i class="fa fa-minus" data-id=${item.id}></i>
         </div>`
         cartContent.appendChild(div);
-        console.log(cartContent)
     }
     showCart() {
         cartDOM.classList.add('showCart');
@@ -319,7 +319,68 @@ class UI {
     setupAPP() {
         cart = Storage.getCart();
         this.setCartValues(cart);
-        this.populate(cart);
+        this.populateCart(cart);
+        
+    }
+    populateCart(cart) {
+        cart.forEach(item=> this.addCartItem(item));
+    }
+    cartLogic() {
+        // CLEAR CART button
+        clearBtn.addEventListener('click', () => {
+            this.clearCart();
+        });
+        // cart functionality
+        cartContent.addEventListener('click', event => {
+            if (event.target.classList.contains('remove-item')) {
+                let removeItem = event.target;
+                let id = removeItem.dataset.id;
+                cartContent.removeChild(removeItem.parentElement.parentElement);
+                this.removeItem(id);
+                // remove the item from both surface and the DOM when click remove button
+            } else if (event.target.classList.contains('fa-plus')) {
+                let addAmount = event.target;
+                let id = addAmount.dataset.id;
+                let tempItem = cart.find(item => item.id ==id);
+                tempItem.amount ++;
+                Storage.saveCart(cart);
+                this.setCartValues(cart);
+                addAmount.nextElementSibling.innerText = tempItem.amount;
+            } else if (event.target.classList.contains('fa-minus')) {
+                let reduceAmount = event.target;
+                let id = reduceAmount.dataset.id;
+                let tempItem = cart.find(item => item.id ==id);
+                tempItem.amount --;
+                if (tempItem.amount > 0) {
+                    Storage.saveCart(cart);
+                    this.setCartValues(cart);
+                    reduceAmount.previousElementSibling.innerText = tempItem.amount;
+                } else {
+                    cartContent.removeChild(reduceAmount.parentElement.parentElement);
+                    this.removeItem(id);
+                }
+            }
+        })
+    }
+    clearCart() {
+        let cartItems = cart.map(item => item.id);
+        cartItems.forEach(id => this.removeItem(id));
+
+        // while cart content has children, remove all of them
+        while(cartContent.children.length > 0) {
+            cartContent.removeChild(cartContent.children[0])
+        }
+    }
+    removeItem(id) {
+        cart = cart.filter(item => item.id != id);
+        this.setCartValues(cart);
+        Storage.saveCart(cart);
+        let button = this.getSingleButton(id);
+        button.disabled = false;
+        button.innerHTML = `ADD TO CART`;
+    }
+    getSingleButton(id) {
+        return buttonsDOM.find(button => button.dataset.id == id);
     }
 }
 
@@ -350,8 +411,10 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(products => {
             ui.displayProducts(products);
             Storage.saveProducts(products);
+        }).then(() => {
+            ui.getBagButtons();
+            ui.cartLogic();
         })
-        .then(() => {ui.getBagButtons()})
 });
 
 
