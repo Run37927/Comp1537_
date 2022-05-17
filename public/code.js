@@ -298,7 +298,7 @@ class UI {
     addCartItem(item) {
         // get star ratings based on baseEXP of pokemon
         const pokeEXP = `${item.EXP}`;
-        const starRating = pokeEXP / 256 *100;
+        const starRating = Math.ceil(pokeEXP / 256 *5);
 
         const div = document.createElement('div');
         div.classList.add('cart-item');
@@ -307,7 +307,7 @@ class UI {
 
         <div>
             <h4>${item.name}</h4>
-            <progress class="progress-bar" value=${starRating} max="256"></progress>
+            <i class="fa fa-star"></i>
             <h5>$ ${item.price}</h5>
             <span class="remove-item" data-id=${item.id}>Remove</span>
         </div>
