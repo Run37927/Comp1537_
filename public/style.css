@@ -325,6 +325,10 @@ div.preheader {
       cursor: pointer;
   }
 
+.checked {
+    color: #FDDA0D;
+}
+
   .clear-cart-btn {
       padding: 10px 15px;
       margin-bottom: 20px;
