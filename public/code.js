@@ -219,11 +219,12 @@ class Products {
             let products = data.pokemon;
     
             products = products.map(item => {
+                const EXP = item.base_experience;
                 const id = item.id;
                 const name = item.name;
                 const price = item.weight;
                 const image = item.sprites.other["official-artwork"].front_default;
-                return {name,price,image,id}
+                return {name,price,image,id,EXP}
             })
             return products
         } catch (error) {
@@ -295,6 +296,10 @@ class UI {
         numberOfItems.innerText = itemsTotal;
     }
     addCartItem(item) {
+        // get star ratings based on baseEXP of pokemon
+        const pokeEXP = `${item.EXP}`;
+        const starRating = pokeEXP / 256 *100;
+
         const div = document.createElement('div');
         div.classList.add('cart-item');
         div.innerHTML = 
@@ -302,6 +307,7 @@ class UI {
 
         <div>
             <h4>${item.name}</h4>
+            <progress class="progress-bar" value=${starRating} max="256"></progress>
             <h5>$ ${item.price}</h5>
             <span class="remove-item" data-id=${item.id}>Remove</span>
         </div>

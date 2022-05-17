@@ -28,13 +28,6 @@ body {
 }
 
 
-/* main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-} */
-
-
 /* testing starts here */
 .products {
     padding: 4rem 0;
@@ -71,6 +64,7 @@ body {
     background: #FDDA0D;
     transition: 0.3s ease-in-out;
     transform: translateX(101%);
+    border-radius: 18px;
 }
 
 .bag-btn:hover {
@@ -299,6 +293,7 @@ div.preheader {
       align-items: center;
       grid-column-gap: 1.5rem;
       margin: 1.5rem 2rem 1.5rem 0;
+      border-bottom: 1px solid #e6e6e6;
   }
 
   .myCart .cart-content img {
@@ -339,6 +334,7 @@ div.preheader {
       font-size: 1.25rem;
       font-weight: 500;
       cursor: pointer;
+      border-radius: 18px;
   }
 
   .cart-footer {
