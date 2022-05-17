@@ -308,6 +308,10 @@ class UI {
         <div>
             <h4>${item.name}</h4>
             <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
             <h5>$ ${item.price}</h5>
             <span class="remove-item" data-id=${item.id}>Remove</span>
         </div>
