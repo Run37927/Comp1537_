@@ -416,7 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ui.cartLogic();
         })
 });
-
+// shopping cart logic ends here
 
 
 
