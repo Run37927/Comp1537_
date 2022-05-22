@@ -185,6 +185,20 @@ function insertEventByName() {
     })
 }
 
+function insertCheckoutEventToTimeline() {
+    $.ajax({
+        url: "http://localhost:5000/timeline/insert",
+        type: "put",
+        data: {
+            text: `Client has checked out`,
+            time: `${now}`,
+            hits: 1
+        },
+        success: function (r) {
+            console.log(r)
+        }
+    })
+}
 // timeline logic ends here
 
 
@@ -447,6 +461,7 @@ function setup() {
     })
 
     $('body').on('click', '.remover', hide);
+    $('.clear-cart-btn').click(insertCheckoutEventToTimeline);
 }
 
 $(document).ready(setup);

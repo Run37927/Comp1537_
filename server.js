@@ -1,5 +1,8 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const session = require('express-session');
+
+const MongoDBSession = require('connect-mongodb-session')(session);
 app.set('view engine', 'ejs');
 const http = require('http');
 const https = require('https');
@@ -8,13 +11,18 @@ const abilities = require("./ability.json")
 const types = require("./type.json")
 const serverUrl = "http://localhost:5000"
 const mongoose = require('mongoose');
+const userModel = require('./user');
 
 app.listen(process.env.PORT || 5000, function (err) {
     if (err)
         console.log(err);
 })
 
-app.use(express.static('./public'));
+
+const store = new MongoDBSession({
+    url: "mongodb://localhost:27017/sessions",
+    collection: "mySessions"
+})
 
 const bodyparser = require("body-parser");
 
@@ -23,6 +31,74 @@ app.use(bodyparser.urlencoded({
     limit: '50mb',
     extended: true
 }));
+
+app.use(session({
+    secret: 'sshh', 
+    saveUninitialized: false, 
+    resave: false,
+    store: store
+}));
+    
+app.use(express.static('./public'));
+
+
+const isAuth = (req,res,next) => {
+    if (req.session.isAuth) {
+        next()
+    } else {
+        res.redirect('/login')
+    }
+}
+  
+
+app.get('/register', (req,res) => {
+    res.render("register.ejs")
+})
+
+app.get('/login', (req,res) => {
+    res.render("login.ejs")
+})
+
+
+app.post("/register", async (req, res) => {
+    const { username, email, password } = req.body;
+    let user = await userModel.findOne({email});
+
+    if (user) {
+        return res.redirect('/register')
+    }
+
+    user = new userModel({username, email, password});
+
+    await user.save();
+    res.redirect('/login');
+
+})
+
+app.post("/login", async (req,res) => {
+    const { email, password } = req.body;
+    const user = await userModel.findOne({email})
+
+    if (!user) {
+        return res.redirect('/login')
+    };
+
+    // const pswd = await userModel.find( { password });
+    // if (pswd !== password) {
+    //     res.redirect("/login")
+    // }
+    req.session.isAuth = true;
+
+    res.redirect("/")
+})
+
+app.get("/", isAuth, (req,res) => {
+    res.redirect("/")
+})
+
+// testing session ends
+
+
 
 app.get("/api/v2/pokemon", function(req,res){
     res.send(pokemons)
@@ -109,7 +185,15 @@ app.get('/profile/:id', function (req, res){
 
 
 mongoose.connect("mongodb://localhost:27017/timelineDB",
-  { useNewUrlParser: true, useUnifiedTopology: true });
+  { useNewUrlParser: true, useUnifiedTopology: true })
+  .then((res) => {
+      console.log("mongoDB connected")
+  });
+
+
+
+
+
 
 const eventSchema = new mongoose.Schema({
   text: String,
