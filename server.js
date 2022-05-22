@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
-
+const bcrypt = require('bcryptjs');
 const MongoDBSession = require('connect-mongodb-session')(session);
 app.set('view engine', 'ejs');
 const http = require('http');
@@ -64,13 +64,23 @@ app.post("/register", async (req, res) => {
     const { username, email, password } = req.body;
     let user = await userModel.findOne({email});
 
+    // if user exist, redirect him to register to try again
     if (user) {
         return res.redirect('/register')
     }
 
-    user = new userModel({username, email, password});
+    // using bcrypt's hash method, pass it an argument, and salt to make it more random
+    const hashedPassword = await bcrypt.hash(password, 12);
 
+    user = new userModel({
+        username, 
+        email, 
+        password: hashedPassword
+    });
+
+    // now use a mongoose method save() to save the user we just created above
     await user.save();
+    // once finished creating the user, redirect him to login page
     res.redirect('/login');
 
 })
@@ -79,23 +89,35 @@ app.post("/login", async (req,res) => {
     const { email, password } = req.body;
     const user = await userModel.findOne({email})
 
+    // if the user doesn't exist, we redirect him to the login page to try again
     if (!user) {
         return res.redirect('/login')
     };
 
-    // const pswd = await userModel.find( { password });
-    // if (pswd !== password) {
-    //     res.redirect("/login")
-    // }
+    // if the user was found, we need to compare the password with user's password we found in the database using bcrypt's compare method
+    const isMatch = await bcrypt.compare(password, user.password);
+    // if it does not match, redirect him back to login and try again
+    if (!isMatch) {
+        return res.redirect('/login');
+    }
+
+    // if it is a match, we want to log this use in, and redirect him to main page  
     req.session.isAuth = true;
-
-    res.redirect("/")
+    res.redirect("/mainpage")
 })
 
-app.get("/", isAuth, (req,res) => {
-    res.redirect("/")
+app.get("/mainpage", isAuth, (req,res) => {
+    // res.redirect("/mainpage.html")
+    res.sendFile(__dirname + "/public/mainpage.html")
+
 })
 
+app.post('/logout', (req,res) => {
+    req.session.destroy((err) => {
+        if (err) throw err;
+        res.redirect("/")
+    })
+})
 // testing session ends
 
 

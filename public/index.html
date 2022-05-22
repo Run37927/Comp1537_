@@ -1,123 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMP2537 ASSIGN3 HAIRUN HUANG</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   
-</head>
-
-<body> 
-
-    <div class="preheader">
-        <span onclick="openNav()" id="openNav"><i class="fa fa-navicon fa-2x"></i></span>
-        <div id="logo">
-          <a href="./index.html"><img src="pokeLogo.png" alt="logo" width="250px" height="130px" ></a>
-      </div>
-        <span onclick="openCart()" id="openCart">
-          <i class="fa fa-cart-plus fa-2x basketBtn"></i>
-          <span id="numberOfItems">0</span>
-      </span>
-    </div>
-
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="./index.html">Home</a>
-        <a href="./timeline.html">Timeline</a>
-        <a href="/register">Sign Up</a>
-        <a href="/login">Log in</a>
-      </div>
-
-      <div id="myCart" class="myCart">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a>
-        <h2>Your Cart</h2>
-        <div class="cart-content">
-            <!-- to be added dynamically -->
-    
-            <!-- to be added dynamically -->
-        </div>
-
-        <div class="cart-footer">
-            <h3>Your total: $ <span class="cart-total">9.99</span></h3>
-            <button class="clear-cart-btn">CLEAR CART</button>
-        </div>
-    
-      </div>
-
-
-    <header></header>
-
-
-    <nav>
-        <div class="selections">
-            <div id="Abilities">
-                <label for="ability">ABILITY</label>
-                <input type="text" id="searchByAbilities" placeholder="search by ability">
-                <button id="getByAbilities">Get Pokemon</button>
-            </div>
-
-            <div id="type">
-                
-                    <label for="type">TYPE</label>
-                        <select name="type" id="type">
-                            <option value="grass">grass</option>
-                            <option value="bug">bug</option>
-                            <option value="dark">dark</option>
-                            <option value="dragon">dragon</option>
-                            <option value="electric">electric</option>
-                            <option value="fairy">fairy</option>
-                            <option value="fighting">fighting</option>
-                            <option value="fire">fire</option>
-                            <option value="flying">flying</option>
-                            <option value="ghost">ghost</option>
-                            <option value="ground">ground</option>
-                            <option value="ice">ice</option>
-                            <option value="normal">normal</option>
-                            <option value="poison">poison</option>
-                            <option value="psychic">psychic</option>
-                            <option value="rock">rock</option>
-                            <option value="steel">steel</option>
-                            <option value="water">water</option>
-                        </select> 
-                
-            </div>
-
-
-
-            <div id="search">
-                
-                    <label for="search">SEARCH</label>
-                    <input type="text" id="searchPoke" name="search" placeholder="search by name">
-                    <button id="getPokemon">Get Pokemon</button>
-               
-            </div>
-        </div>
-        
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Landing page</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
      
-    </nav>
+        <link rel="stylesheet" href="./landing.css">
+    </head>
+    <body>
+        <header class="hero">
+            <div class="container spacing">
+                <h1 class="primary-title">
+                    This is landing page
+                </h1>
+                <p>Shopping for pokemon cards</p>
+                <a href="/register" class="btn">Sign up</a>
+                <a href="/login" class="btn">Log in</a>
+            </div>
+        </header>
 
-    <main class="products">
+        <main>
+            <section class="featured">
+                <div class="container">
+                    <h2 class="section-title">
+                        Featured Pokemons
+                    </h2>
 
-        <div class="products-center">
-            <!-- to be added dynamically -->
-        </div>
+                    <div class="split">
+                        <a href="#" class="featured__item">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png" alt="" class="featured__img">
+                            <p class="featured__details"><span class="price"></span></p>
+                        </a>
+                        <a href="#" class="featured__item">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png" alt="" class="featured__img">
+                            <p class="featured__details"><span class="price"></span></p>
+                        </a>
+                        <a href="#" class="featured__item">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png" alt="" class="featured__img">
+                            <p class="featured__details"><span class="price"></span></p>
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-    </main>
-    <div id="history"></div>
 
-    <footer>
-        <p>Copyrighht &copy; COMP2537 2022</p>
-        <a href=""><i class="fa fa-facebook-square fa-2x"></i></a>
-        <a href=""><i class="fa fa-github fa-2x"></i></a>
-        <a href=""><i class="fa fa-linkedin-square fa-2x"></i></a>
-        <a href=""><i class="fa fa-youtube-play fa-2x"></i></a>
-    </footer>
-    <script src="code.js"></script>
-</body>
+            <section class="our-products">
+                <div class="container">
+                    <h2 class="section-title">Our products</h2>
 
+                    <article class="product air-travel spacing">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="" width="60px" height="250px" class="product__image">
+                        <h3 class="product__title">Pikachu</h3>
+                        <p class="product__description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <a href="./monitor.html" class="btn">BUY NOW</a>
+                    </article>
+
+                    <article class="product outdoor spacing">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png" alt="" width="80px" height="250px" class="product__image">
+                        <h3 class="product__title">chudksde</h3>
+                        <p class="product__description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <a href="/camp.html" class="btn">BUY NOW</a>
+                    </article>
+
+                    <article class="product beach spacing">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png" alt="" width="80px" height="250px" class="product__image">
+                        <h3 class="product__title">ijeidncfs</h3>
+                        <p class="product__description">Lorem ipsum dolor sit amet consectetRY NOWng elit.</p>
+                        <a href="/beachbar.html" class="btn">BUY now</a>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+
+        <script>
+            button = document.querySelector(".btn");
+            
+        </script>
+    </body>
 </html>
