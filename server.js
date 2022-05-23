@@ -19,6 +19,7 @@ app.listen(process.env.PORT || 5000, function (err) {
 })
 
 
+// session starts
 const store = new MongoDBSession({
     url: "mongodb://localhost:27017/sessions",
     collection: "mySessions"
@@ -101,15 +102,13 @@ app.post("/login", async (req,res) => {
         return res.redirect('/login');
     }
 
-    // if it is a match, we want to log this use in, and redirect him to main page  
+    // if it is a match, we want to log this use in, and redirect him to profile page  
     req.session.isAuth = true;
-    res.redirect("/mainpage")
+    res.redirect("/timeline");
 })
 
-app.get("/mainpage", isAuth, (req,res) => {
-    // res.redirect("/mainpage.html")
-    res.sendFile(__dirname + "/public/mainpage.html")
-
+app.get("/timeline", isAuth, (req,res) => {
+    res.sendFile(__dirname + "/public/timeline.html");
 })
 
 app.post('/logout', (req,res) => {
@@ -118,8 +117,21 @@ app.post('/logout', (req,res) => {
         res.redirect("/")
     })
 })
-// testing session ends
+// session ends
 
+
+// add a route for displaying userinfo in timeline page
+app.get("/fetchuserdata/", isAuth, function(req, res) {
+    userModel.find({ }, function(err, data) {
+      if (err) {
+        console.log("Error " + err);
+      } else {
+        console.log("Data " + JSON.stringify(data));
+      }
+      res.send(data[3]);
+    })
+  })
+// end
 
 
 app.get("/api/v2/pokemon", function(req,res){
@@ -216,7 +228,7 @@ mongoose.connect("mongodb://localhost:27017/timelineDB",
 
 
 
-
+// timeline starts
 const eventSchema = new mongoose.Schema({
   text: String,
   hits: Number,
@@ -231,7 +243,7 @@ app.get('/timeline/getAllEvents', function(req,res) {
         if (err) {
             console.log(err);
         } else {
-            console.log('data' + data);
+            console.log('data ' + data);
         }
 
         res.send(data);
@@ -286,3 +298,4 @@ app.get('/timeline/remove/:id', function(req,res) {
         res.send("delete is successful");
     })
 })
+// timeline ends

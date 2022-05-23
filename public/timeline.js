@@ -5,15 +5,17 @@ function loadEvents() {
         success: (data) => {
             console.log(data);
             for ( i=0; i< data.length; i++) {
-                $("main").append(
-                `<div id='box'>
-                Event text - ${data[i].text} <br>
-                Event time - ${data[i].time} <br>
-                Event hits - ${data[i].hits} <br>
-                
-                <button class="likeBtn" id="${data[i]["_id"]}"> Like </button>
-                <button class="deleteBtn" id="${data[i]["_id"]}"> Delete </button>
-                </div>
+                $("ul").append(
+                `
+                    <li>
+                        <div class="timeline-content">
+                            <h2 class="date">${data[i].time}</h2>
+                            <h1>${data[i].text}</h1>
+                            <p>Event hits - ${data[i].hits}</p>
+                            <button class="likeBtn" id="${data[i]["_id"]}"> Like </button>
+                            <button class="deleteBtn" id="${data[i]["_id"]}"> Delete </button>
+                        </div>
+                    </li>
                 `)
             }
        
@@ -49,8 +51,6 @@ function setup() {
     loadEvents();
     $("body").on('click', '.likeBtn', incrementHitsByOne);
     $("body").on('click', '.deleteBtn', deleteDiv);
-
-    
 }
 
 
