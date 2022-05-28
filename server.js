@@ -100,11 +100,24 @@ app.post("/login", async (req,res) => {
     // if it does not match, redirect him back to login and try again
     if (!isMatch) {
         return res.redirect('/login');
+    } else if (user._doc.isadmin) {
+        console.log('logged in as admin')
+        req.session.isAuth = true;
+        res.redirect("/admin");
+    } else {
+        console.log("logged in as regular user")
+        req.session.isAuth = true;
+        res.redirect("/timeline");
     }
 
     // if it is a match, we want to log this use in, and redirect him to profile page  
-    req.session.isAuth = true;
-    res.redirect("/timeline");
+    // req.session.isAuth = true;
+    // res.redirect("/timeline");
+})
+
+
+app.get("/admin", isAuth, (req,res) => {
+    res.sendFile(__dirname + "/public/admin.html");
 })
 
 app.get("/timeline", isAuth, (req,res) => {
