@@ -53,3 +53,43 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard))
+
+
+easyBtn = document.getElementById('easy')
+easyBtn.onclick = function() {
+    const startingMinutes = 10;
+    let time = startingMinutes * 60;
+    
+    const countdownEl = document.getElementById('countdown');
+    
+    setInterval(updatecountdown, 1000);
+    
+    function updatecountdown() {
+        const minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+    
+        seconds = seconds<10 ? '0' + seconds : seconds;
+        countdownEl.innerHTML = `${minutes}:${seconds}`;
+        time--
+    }
+};
+
+hardBtn = document.getElementById('hard')
+hardBtn.onclick = function() {
+    const startingMinutes = 3;
+    let time = startingMinutes * 60;
+    
+    const countdownEl = document.getElementById('countdown');
+    
+    setInterval(updatecountdown, 1000);
+    
+    function updatecountdown() {
+        const minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+    
+        seconds = seconds<10 ? '0' + seconds : seconds;
+        countdownEl.innerHTML = `${minutes}:${seconds}`;
+        time--
+    }
+}
+

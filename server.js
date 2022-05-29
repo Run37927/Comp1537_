@@ -300,6 +300,24 @@ app.get('/timeline/remove/:id', function(req,res) {
 
 
 // customer list CRUD
+// create
+app.put('/customerlist/insert', function(req,res) {
+    // console.log(req.body);
+    userModel.create({
+        username: req.body.text,
+        email: req.body.email,
+        password: req.body.password
+    }, function(err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('data' + data);
+        }
+
+        res.send(data);
+    })
+})
+
 // read
 app.get("/customerlist", function(req, res) {
     userModel.find({ "isadmin" : false}, function(err, userInfo) {

@@ -9,9 +9,17 @@
         <style>
             body {
                 background: url('./bgcolor.png');
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
             }
             table td {
                 border: 1px solid black;
+            }
+            th {
+                border: 1px solid black;
+                font-size: larger;
+                background-color: antiquewhite;
             }
             table {
                 border-collapse: collapse;
@@ -19,11 +27,57 @@
             td {
                 padding: 5px;
             }
+            .createRegularBtn,
+            .createAdminBtn,
+            .deleteBtn,
+            .viewBtn,
+            .back{
+                background-image: linear-gradient(#0dccea, #0d70ea);
+                border: 0;
+                border-radius: 4px;
+                box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px;
+                box-sizing: border-box;
+                color: #fff;
+                cursor: pointer;
+                font-family: Montserrat, sans-serif;
+                font-size: 0.9em;
+                margin: 5px;
+                padding: 10px 15px;
+                text-align: center;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+            }
+
+            #create input {
+                padding: 5px;
+                margin-bottom: 5px;
+            }
         </style>
     </head>
     <body>
-        <h1>customer list</h1>
-        <table id="userinfo"></table>
+        <div id="create">
+            <label for="create">Create New Users</label>
+            <br>
+            <input type="text" id="createRegularName" name="createRegular" placeholder="enter name">
+            <br>
+            <input type="email" id="createRegularEmail" name="createRegular" placeholder="enter email">
+            <br>
+            <input type="password" id="createRegularPswd" name="createRegular" placeholder="enter password">
+            <br>
+            <button class="createRegularBtn">Add new user</button> <br>
+            <button class="back">Back to Mainpage</button>
+        </div>
+
+        <table id="userinfo">
+            <tr>
+                <th>current users</th>
+                <th>details</th>
+                <th>actions</th>
+            </tr>
+        </table>
+
+       
         <script>
             function fetchUserData() {
                 $.ajax({
@@ -57,7 +111,9 @@
                             }">Delete</button><br>
                                     <button class="viewBtn" id="${
                                 userInfo["_id"]
-                            }">Viewed - ${userInfo.viewed}</button>
+                            }">Viewed - ${
+                                userInfo.viewed
+                            }</button>
                                 </td>
                             </tr>`);
                         })
@@ -87,10 +143,33 @@
                 })
             }
 
+
+            function insertNewUser() {
+                $.ajax({
+                    url: "http://localhost:5000/customerlist/insert",
+                    type: "put",
+                    data: {
+                        username: $("#createRegularName").val(),
+                        email: $("#createRegularEmail").val(),
+                        password: $("#createRegularPswd").val()
+                    },
+                    success: function (r) {
+                        console.log(r)
+                    }
+                })
+            }
+
+
+            function backhome() {
+                location.href = "./mainpage.html";
+            }
+
             function setup() {
                 fetchUserData();
                 $("body").on('click', '.viewBtn', incrementViewedByOne);
                 $("body").on('click', '.deleteBtn', deleteDiv);
+                $("body").on('click', '.createRegularBtn', insertNewUser);
+                $("body").on('click', '.back', backhome);
             }
 
             $(document).ready(setup);

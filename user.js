@@ -16,12 +16,10 @@ const userSchema= new Schema({
         required: true
     },
     isadmin: {
-        type: Boolean,
-        required: true
+        type: Boolean
     },
     viewed: {
-        type: Number,
-        required: true
+        type: Number
     }
 })
 
