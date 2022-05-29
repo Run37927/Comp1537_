@@ -14,6 +14,14 @@ const userSchema= new Schema({
     password: {
         type: String,
         required: true
+    },
+    isadmin: {
+        type: Boolean,
+        required: true
+    },
+    viewed: {
+        type: Number,
+        required: true
     }
 })
 

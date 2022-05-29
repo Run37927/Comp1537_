@@ -111,17 +111,7 @@ app.post("/login", async (req,res) => {
     }
 })
 
-// Retreiving user info from DB to the admin page.
-app.get("/fetchuserdata", function(req, res) {
-    userModel.find({ "isadmin" : false}, function(err, userInfo) {
-      if (err) {
-        console.log("Error " + err);
-      } else {
-        console.log("Data " + JSON.stringify(userInfo));
-      }
-      res.send(userInfo);
-    })
-  })
+
 
 app.get("/admin", isAuth, (req,res) => {
     res.sendFile(__dirname + "/public/admin.html");
@@ -139,19 +129,6 @@ app.post('/logout', (req,res) => {
 })
 // session ends
 
-
-// add a route for displaying userinfo in timeline page
-app.get("/fetchuserdata/", isAuth, function(req, res) {
-    userModel.find({ }, function(err, data) {
-      if (err) {
-        console.log("Error " + err);
-      } else {
-        console.log("Data " + JSON.stringify(data));
-      }
-      res.send(data[3]);
-    })
-  })
-// end
 
 
 app.get("/api/v2/pokemon", function(req,res){
@@ -272,7 +249,7 @@ app.get('/timeline/getAllEvents', function(req,res) {
 
 // THE CREATE IN CRUD
 app.put('/timeline/insert', function(req,res) {
-    console.log(req.body)
+    // console.log(req.body);
     eventModel.create({
         text: req.body.text,
         time: req.body.time,
@@ -319,3 +296,47 @@ app.get('/timeline/remove/:id', function(req,res) {
     })
 })
 // timeline ends
+
+
+
+// customer list CRUD
+// read
+app.get("/customerlist", function(req, res) {
+    userModel.find({ "isadmin" : false}, function(err, userInfo) {
+      if (err) {
+        console.log("Error " + err);
+      } else {
+        console.log("Data " + JSON.stringify(userInfo));
+      }
+      res.send(userInfo);
+    })
+})
+
+// update
+app.get('/customerlist/increaseViewed/:id', function(req,res) {
+    console.log("show me req.params.id " + req.params.id)
+    userModel.updateOne({
+        _id: req.params.id
+    }, { $inc: { viewed : 1} }, function(err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('data' + data);
+        }
+
+        res.send(data);
+    })
+})
+
+// delete
+app.get('/customerlist/remove/:id', function(req,res) { 
+    userModel.remove({ _id: req.params.id }, function(err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('data' + data);
+        }
+
+        res.send("delete is successful");
+    })
+})

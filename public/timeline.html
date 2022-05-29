@@ -163,23 +163,6 @@
                 location.href = "./mainpage.html";
             };
 
-            function fetchUserData() {
-                $.ajax({
-                    url: `http://localhost:5000/fetchuserdata/`,
-                    type: "GET",
-                    success: function(data) {
-                    console.log(data);
-                        $('#userInfo').append(
-                            `
-                            Username is: ${data.username} <br>
-                            UserEmail is: ${data.email}
-                            ` 
-                            );
-                    }
-                })
-            }
-
-            fetchUserData()
         </script>
     </body>
 </html>
