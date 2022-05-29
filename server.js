@@ -109,12 +109,19 @@ app.post("/login", async (req,res) => {
         req.session.isAuth = true;
         res.redirect("/timeline");
     }
-
-    // if it is a match, we want to log this use in, and redirect him to profile page  
-    // req.session.isAuth = true;
-    // res.redirect("/timeline");
 })
 
+// Retreiving user info from DB to the admin page.
+app.get("/fetchuserdata", function(req, res) {
+    userModel.find({ "isadmin" : false}, function(err, userInfo) {
+      if (err) {
+        console.log("Error " + err);
+      } else {
+        console.log("Data " + JSON.stringify(userInfo));
+      }
+      res.send(userInfo);
+    })
+  })
 
 app.get("/admin", isAuth, (req,res) => {
     res.sendFile(__dirname + "/public/admin.html");

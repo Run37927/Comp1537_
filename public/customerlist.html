@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>customer list</title>
+    <style>
+        table td{
+            border: 1px solid black;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>customer list</h1>
+    <table id="userinfo">
+
+    </table>
+    <script>
+         function fetchUserData() {
+                $.ajax({
+                    url: `http://localhost:5000/fetchuserdata`,
+                    type: "GET",
+                    success: function(data) {
+                    console.log(data);
+                   
+                    data.forEach(userInfo =>{
+                        $('#userinfo').append(
+                            `<tr>
+                                <td width="60px">
+                                    <div class="imgBx">
+                                        <img src="avatar.jpg" alt="customer" width="100px" height="70px">
+                                    </div>
+                                </td>
+                                <td>
+                                    <h4>Name: ${userInfo.username} <br>
+                                    <span>Email: ${userInfo.email}</span> <br>
+                                    <span>Admin status: ${userInfo.isadmin}</span>
+                                    </h4>
+                                </td>
+                                <td>
+                                    <button>Delete</button><br>
+                                    <button>Update</button>
+                                </td>
+                            </tr>` 
+                            );
+                        })
+                    }
+                })
+            }
+
+            fetchUserData()
+    </script>
+</body>
+</html>
